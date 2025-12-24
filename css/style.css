@@ -414,11 +414,6 @@ img {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
-  /* width: 64px; */ /* REMOVED */
-  /* height: 64px; */ /* REMOVED */
-  /* background: #25D366; */ /* REMOVED */
-  /* border-radius: 50%; */ /* REMOVED */
-  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */ /* REMOVED */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -427,20 +422,9 @@ img {
 }
 
 .whatsapp-icon-img {
-  width: 48px; /* Changed to 48px so the icon is slightly larger without the circle */
+  width: 60px; /* Changed to 48px so the icon is slightly larger without the circle */
   height: auto;
 }
-
-/* .whatsapp-float:hover { */ /* REMOVED */
-  /* box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); */ /* REMOVED */
-/* } */
-
-/* .whatsapp-float svg { */ /* REMOVED if using <img> */
-  /* width: 32px; */
-  /* height: 32px; */
-  /* color: white; */
-/* } */
-
 
 /* Responsive Design */
 @media (min-width: 768px) {
@@ -525,6 +509,7 @@ img {
     height: 350px;
   }
 }
+
 
 
 
