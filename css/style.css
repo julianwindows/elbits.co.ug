@@ -172,7 +172,7 @@ img {
 .section-divider {
   height: 4px;
   width: 256px;
-  background: ##ec9b19;
+  background: #ec9b19;
   margin: 0 auto 2rem;
 }
 
@@ -519,3 +519,4 @@ img {
     height: 350px;
   }
 }
+
