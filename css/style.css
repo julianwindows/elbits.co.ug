@@ -166,7 +166,7 @@ img {
 /* Why Choose Us Section */
 .why-choose-us {
   background: #1d3859;
-  padding: 4rem 1rem;
+  padding: 3rem 1rem;
 }
 
 .section-divider {
@@ -220,7 +220,7 @@ img {
 /* About Us Section */
 .about-us {
   background: white;
-  padding: 4rem 1rem;
+  padding: 3rem 1rem;
 }
 
 .about-us h2 {
@@ -272,7 +272,7 @@ img {
 /* Services Section */
 .services {
   background: #f6f6f6;
-  padding: 4rem 1rem;
+  padding: 3rem 1rem;
 }
 
 .services h2 {
@@ -309,7 +309,7 @@ img {
 /* Featured Property Section */
 .featured-property {
   background: #1d3859;
-  padding: 4rem 1rem;
+  padding: 3rem 1rem;
 }
 
 .featured-property h2 {
@@ -322,7 +322,7 @@ img {
 /* Contact Section */
 .contact {
   background: white;
-  padding: 4rem 1rem;
+  padding: 3rem 1rem;
 }
 
 .contact h2 {
@@ -392,7 +392,7 @@ img {
 /* Footer */
 .footer {
   background: #1d3859;
-  padding: 2rem 1rem;
+  padding: 1rem 1rem;
 }
 
 .footer-divider {
