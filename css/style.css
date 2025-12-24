@@ -425,6 +425,11 @@ img {
   transition: box-shadow 0.3s;
   z-index: 999;
 }
+.whatsapp-icon-img {
+  width: 32px; /* Matches the SVG size you had */
+  height: 32px;
+}
+
 
 .whatsapp-float:hover {
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
@@ -519,4 +524,5 @@ img {
     height: 350px;
   }
 }
+
 
