@@ -357,8 +357,8 @@ img {
 }
 
 .contact-item img {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
   margin-bottom: 1rem;
 }
@@ -519,3 +519,4 @@ img {
     height: 350px;
   }
 }
+
