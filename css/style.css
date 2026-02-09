@@ -294,8 +294,8 @@ img {
 }
 
 .service-item img {
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
   object-fit: contain;
   margin-bottom: 1rem;
 }
@@ -373,7 +373,7 @@ img {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  margin-top: 3rem;
+  margin-top: 0rem;
 }
 
 .social-links a {
@@ -385,8 +385,8 @@ img {
 }
 
 .social-links img {
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
 }
 
 /* Footer */
@@ -409,22 +409,7 @@ img {
   margin: 0.25rem 0;
 }
 
-/* WhatsApp Float Button (Transparent Version) */
-.whatsapp-float {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: box-shadow 0.3s;
-  z-index: 999;
-}
 
-.whatsapp-icon-img {
-  width: 60px; /* Changed to 48px so the icon is slightly larger without the circle */
-  height: auto;
-}
 
 /* Responsive Design */
 @media (min-width: 768px) {
@@ -509,7 +494,29 @@ img {
     height: 350px;
   }
 }
+/* WhatsApp Float Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 64px;
+  height: 64px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+  z-index: 999;
+}
 
+.whatsapp-float:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
 
-
-
+.whatsapp-float svg {
+  width: 32px;
+  height: 32px;
+  color: white;
+}
