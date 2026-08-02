@@ -196,7 +196,13 @@ p{ margin:0; }
 .brand{ display:flex; align-items:center; gap:11px; }
 .brand img{ height:34px; width:auto; flex:none; }
 .brand-word{ display:flex; flex-direction:column; line-height:1.05; }
-.brand-word b{ font-family:var(--font-display); font-size:15px; letter-spacing:0.02em; color:var(--ink); }
+.brand-word b{ font-family:var(--font-display); font-size:13px; letter-spacing:0.02em; color:var(--ink); }
+   .brand-word {
+  border-left: 2px solid #ccc; /* vertical line */
+  padding-left: 10px; /* space between line and text */
+  margin-left: 10px; /* space between logo and line */
+}
+
 .brand-word span{ font-family:var(--font-mono); font-size:9.5px; letter-spacing:0.1em; color:var(--ink-soft); text-transform:uppercase; }
 
 .nav-desktop{ display:flex; align-items:center; gap:34px; }
@@ -573,7 +579,7 @@ textarea.field{ resize:vertical; min-height:88px; }
   <div class="container">
     <a href="#top" class="brand">
       <img src="assets/ELBITS LOGO.png" alt="Elbits logo" height="34" />
-      <span class="brand-word"><span><b>Consulting Surveyors &amp; Chartered Valuers Co. Ltd</b></span></span>
+      <span class="brand-word"><span><b>Consulting Surveyors <br> &amp; Chartered Valuers</b></span></span>
     </a>
 
     <nav class="nav-desktop">
