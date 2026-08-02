@@ -1,244 +1,826 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Elbits Consulting Surveyors and Chartered Valuers - Professional Land Surveying Services in Uganda">
-  <title>Elbits Consulting Surveyors & Chartered Valuers | Professional Land Surveying Services</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Elbits Consulting Surveyors and Chartered Valuers — Land Surveying, Property Valuation, Real Estate Agency and Consultancy services across Uganda." />
+<title>Elbits Consulting Surveyors & Chartered Valuers | Kampala, Uganda</title>
+<link rel="icon" href="assets/ELBITS LOGO.png" type="image/png" />
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" type="image/png" href="https://ext.same-assets.com/2810750548/2249235439.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Inline styles for icons and small helpers (keeps original look/colors) -->
-  <style>
-    :root {
-      --primary: #0b6b4f;
-      --accent: #f2b705;
-      --muted: #666;
-      --light: #f7f7f7;
-      --card-bg: #fff;
-      --maxw: 1100px;
-      --btn-radius: 12px;
-    }
+<style>
+/* ============================================================
+   ELBITS — DESIGN TOKENS
+   ============================================================ */
+:root{
+  --ink:        #0F241D;   /* primary text, deep forest-charcoal */
+  --ink-soft:   #3C5049;   /* secondary text */
+  --paper:      #F1F4EE;   /* page background, sage paper */
+  --paper-alt:  #E6EBE1;   /* alternate section background */
+  --panel:      #FFFFFF;   /* card surfaces */
+  --forest:     #0B6B4F;   /* brand green */
+  --forest-deep:#0A2A20;   /* hero / dark section background */
+  --forest-line:#173C30;   /* lines on dark background */
+  --beacon:     #E8622C;   /* survey-stake orange — the one accent */
+  --beacon-dark:#C64F20;
+  --line:       rgba(15,36,29,0.12);
+  --line-soft:  rgba(15,36,29,0.07);
+  --shadow:     0 20px 45px -25px rgba(10,35,27,0.35);
 
-    /* Feature icon styles */
-    .feature {
-      position: relative;
-      padding-top: 55px; /* space for icon */
-      text-align: center;
-    }
-    .feature .feature-icon {
-      position: absolute;
-      top: 6px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 48px;
-      height: 48px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: #fff;
-      border-radius: 50%;
-      border: 2px solid rgba(11,107,79,0.08);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-    }
-    .feature .feature-icon svg {
-      width: 24px;
-      height: 24px;
-      fill: var(--primary);
-    }
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body:    'Inter', sans-serif;
+  --font-mono:    'IBM Plex Mono', monospace;
 
-    /* Rounded buttons (keeps previous rounded update) */
-    .btn, .btn-primary, .btn-secondary, button, input[type="submit"], input[type="button"] {
-      border-radius: var(--btn-radius) !important;
-    }
+  --maxw: 1180px;
+  --radius: 4px;
+}
 
-    /* Minimal card helpers used in inserted sections */
-    .card { background: var(--card-bg); border: 1px solid #eee; border-radius: 8px; padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
-    .card input, .card select, .card textarea { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; }
-    .card button { background: var(--primary); color: #fff; border: 0; padding: 10px 14px; border-radius: 12px; cursor: pointer; font-weight: 700; }
-    .two-col { display:flex; gap:18px; align-items:stretch; }
-    .two-col .card { flex:1; display:flex; flex-direction:column; }
-    .col-right { display:flex; flex-direction:column; gap:18px; flex:1; }
-    .col-right .card { flex:1; }
-    @media (max-width:900px) {
-      .two-col { flex-direction:column; }
-    }
-    .msg { margin-top:10px; font-weight:600; }
-    .msg.success { color: var(--primary); }
-    .msg.error { color: #c0392b; }
-    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
-    .whatsapp-float { position: fixed; right: 16px; bottom: 16px; z-index: 60; display: inline-block; }
-    .whatsapp-icon-img { width: 56px; height: 56px; border-radius: 50%; display:block; }
-  </style>
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+}
+
+body{
+  margin:0;
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+button{ font-family:inherit; }
+:focus-visible{ outline:2px solid var(--beacon); outline-offset:3px; }
+
+.container{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:0 28px;
+}
+
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  color:var(--forest);
+}
+.eyebrow::before{
+  content:"";
+  width:7px; height:7px;
+  background:var(--beacon);
+  border-radius:1px;
+  transform:rotate(45deg);
+  flex:none;
+}
+.on-dark .eyebrow{ color:#8FD9BC; }
+.on-dark .eyebrow::before{ background:var(--beacon); }
+
+h1,h2,h3{
+  font-family:var(--font-display);
+  font-weight:600;
+  line-height:1.12;
+  margin:0;
+  letter-spacing:-0.01em;
+}
+h2{ font-size:clamp(28px,4vw,42px); }
+h3{ font-size:19px; }
+p{ margin:0; }
+
+.section{ padding:96px 0; position:relative; }
+.section-alt{ background:var(--paper-alt); }
+@media (max-width:720px){ .section{ padding:64px 0; } }
+
+.section-head{
+  max-width:640px;
+  margin-bottom:48px;
+}
+.section-head h2{ margin-top:14px; }
+.section-head .lede{
+  margin-top:16px;
+  color:var(--ink-soft);
+  font-size:16.5px;
+}
+
+/* station number — literal to surveying: control-point labels, not decoration */
+.station{
+  font-family:var(--font-mono);
+  font-size:12px;
+  color:var(--ink-soft);
+  letter-spacing:0.08em;
+}
+
+/* blueprint-style corner registration marks — the signature element */
+.marked{
+  position:relative;
+}
+.marked::before,
+.marked::after{
+  content:"";
+  position:absolute;
+  width:14px; height:14px;
+  pointer-events:none;
+  opacity:0.55;
+}
+.marked::before{
+  top:-1px; left:-1px;
+  border-top:2px solid var(--beacon);
+  border-left:2px solid var(--beacon);
+}
+.marked::after{
+  bottom:-1px; right:-1px;
+  border-bottom:2px solid var(--beacon);
+  border-right:2px solid var(--beacon);
+}
+
+/* faint coordinate-grid texture */
+.grid-texture{
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size:42px 42px;
+}
+
+.btn{
+  font-family:var(--font-mono);
+  font-size:13px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 24px;
+  border-radius:var(--radius);
+  border:1px solid transparent;
+  cursor:pointer;
+  transition:transform .18s ease, background .18s ease, border-color .18s ease, color .18s ease;
+  white-space:nowrap;
+}
+.btn:hover{ transform:translateY(-2px); }
+.btn-primary{ background:var(--beacon); color:#fff; }
+.btn-primary:hover{ background:var(--beacon-dark); }
+.btn-ghost{ border-color:rgba(255,255,255,0.35); color:#fff; }
+.btn-ghost:hover{ border-color:#fff; background:rgba(255,255,255,0.08); }
+.btn-line{ border-color:var(--line); color:var(--ink); }
+.btn-line:hover{ border-color:var(--forest); color:var(--forest); }
+.btn svg{ width:14px; height:14px; flex:none; }
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.header{
+  position:fixed; top:0; left:0; right:0;
+  z-index:100;
+  padding:20px 0;
+  transition:padding .25s ease, background .25s ease, box-shadow .25s ease;
+}
+.header .container{ display:flex; align-items:center; justify-content:space-between; gap:24px; }
+.header.scrolled{
+  padding:12px 0;
+  background:rgba(241,244,238,0.86);
+  backdrop-filter:blur(14px) saturate(140%);
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
+  box-shadow:0 1px 0 var(--line);
+}
+
+.brand{ display:flex; align-items:center; gap:11px; }
+.brand img{ height:34px; width:auto; flex:none; }
+.brand-word{ display:flex; flex-direction:column; line-height:1.05; }
+.brand-word b{ font-family:var(--font-display); font-size:18px; letter-spacing:0.02em; color:var(--ink); }
+.brand-word span{ font-family:var(--font-mono); font-size:9.5px; letter-spacing:0.1em; color:var(--ink-soft); text-transform:uppercase; }
+.header.on-hero .brand-word b, .header.on-hero .brand-word span{ color:#fff; }
+.header.scrolled .brand-word b, .header.scrolled .brand-word span{ color:var(--ink); }
+
+.nav-desktop{ display:flex; align-items:center; gap:34px; }
+.nav-links{ display:flex; gap:30px; }
+.nav-links a{
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:#fff;
+  position:relative;
+  padding-bottom:3px;
+}
+.header.scrolled .nav-links a{ color:var(--ink); }
+.nav-links a::after{
+  content:""; position:absolute; left:0; right:0; bottom:0; height:1px;
+  background:var(--beacon); transform:scaleX(0); transform-origin:left; transition:transform .2s ease;
+}
+.nav-links a:hover::after{ transform:scaleX(1); }
+
+.social-links{ display:flex; align-items:center; gap:14px; margin-left:6px; padding-left:20px; border-left:1px solid rgba(255,255,255,0.25); }
+.header.scrolled .social-links{ border-left-color:var(--line); }
+.social-links a{ width:18px; height:18px; color:#fff; opacity:0.85; transition:opacity .2s ease, color .2s ease; }
+.header.scrolled .social-links a{ color:var(--ink-soft); }
+.social-links a:hover{ opacity:1; color:var(--beacon); }
+.social-links svg{ width:100%; height:100%; }
+
+.mobile-menu-btn{
+  display:none;
+  width:36px; height:36px;
+  background:none; border:none; cursor:pointer;
+  flex-direction:column; align-items:center; justify-content:center; gap:5px;
+}
+.mobile-menu-btn span{ width:22px; height:2px; background:#fff; transition:transform .25s ease, opacity .25s ease, background .25s ease; }
+.header.scrolled .mobile-menu-btn span{ background:var(--ink); }
+.mobile-menu-btn.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.mobile-menu-btn.open span:nth-child(2){ opacity:0; }
+.mobile-menu-btn.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+.nav-mobile{
+  display:none;
+  position:fixed; top:0; right:0; bottom:0;
+  width:min(320px,84vw);
+  background:var(--forest-deep);
+  z-index:99;
+  padding:100px 32px 40px;
+  transform:translateX(100%);
+  transition:transform .32s cubic-bezier(.4,0,.2,1);
+  flex-direction:column;
+  gap:26px;
+}
+.nav-mobile.open{ transform:translateX(0); }
+.nav-mobile a{ font-family:var(--font-mono); font-size:15px; letter-spacing:0.06em; text-transform:uppercase; color:#fff; }
+.nav-mobile .social-links{ border-left:none; padding-left:0; margin-top:14px; }
+
+.nav-scrim{
+  display:none; position:fixed; inset:0; background:rgba(10,35,27,0.4); z-index:98;
+  opacity:0; transition:opacity .25s ease;
+}
+.nav-scrim.open{ display:block; opacity:1; }
+
+@media (max-width:880px){
+  .nav-desktop{ display:none; }
+  .mobile-menu-btn{ display:flex; }
+  .nav-mobile{ display:flex; }
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:flex-end;
+  background:var(--forest-deep);
+  overflow:hidden;
+  color:#fff;
+}
+.hero-contours{ position:absolute; inset:0; width:100%; height:100%; opacity:0.5; }
+.hero-vignette{
+  position:absolute; inset:0;
+  background:
+    radial-gradient(60% 55% at 78% 18%, rgba(11,107,79,0.35), transparent 60%),
+    linear-gradient(180deg, rgba(10,35,27,0.15) 0%, rgba(10,35,27,0.55) 62%, rgba(10,35,27,0.92) 100%);
+}
+.hero-inner{
+  position:relative; z-index:2;
+  width:100%;
+  padding:180px 0 0;
+}
+.hero-top{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:18px; margin-bottom:26px; }
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.05fr 0.95fr;
+  gap:36px;
+  align-items:center;
+}
+.hero h1{
+  font-size:clamp(36px,4.6vw,60px);
+  max-width:16ch;
+  margin-top:22px;
+}
+.hero h1 em{ font-style:normal; color:#8FD9BC; }
+.hero-lede{
+  margin-top:22px;
+  max-width:52ch;
+  font-size:17.5px;
+  color:rgba(255,255,255,0.82);
+}
+.hero-cta{ display:flex; gap:16px; margin-top:36px; flex-wrap:wrap; }
+
+.hero-visual{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.hero-visual img{
+  width:100%;
+  max-width:520px;
+  filter:drop-shadow(0 24px 40px rgba(0,0,0,0.35));
+}
+.stat-card{
+  position:absolute;
+  left:-8px;
+  bottom:6%;
+  background:rgba(10,35,27,0.72);
+  border:1px solid rgba(143,217,188,0.35);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  padding:20px 24px;
+  min-width:190px;
+}
+.stat-card .stat-number{
+  font-family:var(--font-display);
+  font-size:34px;
+  font-weight:700;
+  color:#fff;
+  line-height:1;
+  display:flex;
+  align-items:baseline;
+  gap:2px;
+}
+.stat-card .stat-number span.plus{ color:var(--beacon); font-size:24px; }
+.stat-card .stat-label{
+  margin-top:8px;
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.65);
+}
+
+@media (max-width:980px){
+  .hero-grid{ grid-template-columns:1fr; }
+  .hero-visual{ order:-1; margin-bottom:8px; }
+  .hero-visual img{ max-width:340px; }
+  .stat-card{ left:50%; transform:translateX(-50%); bottom:-14px; }
+}
+
+.coord-bar{
+  position:relative; z-index:2;
+  margin-top:64px;
+  border-top:1px solid rgba(255,255,255,0.16);
+  padding:18px 0;
+  display:flex; align-items:center; gap:38px;
+  overflow:hidden;
+  font-family:var(--font-mono);
+  font-size:12px;
+  letter-spacing:0.08em;
+  color:rgba(255,255,255,0.65);
+  text-transform:uppercase;
+}
+.coord-bar span{ display:flex; align-items:center; gap:8px; white-space:nowrap; }
+.coord-bar span::before{ content:"·"; color:var(--beacon); font-size:18px; line-height:0; }
+.coord-bar span:first-child::before{ display:none; }
+
+@media (max-width:720px){
+  .hero-inner{ padding-top:140px; }
+  .coord-bar{ flex-wrap:wrap; gap:14px 28px; }
+}
+
+/* ============================================================
+   WHY CHOOSE US
+   ============================================================ */
+.features-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  margin-top:16px;
+}
+.feature{
+  background:var(--panel);
+  padding:40px;
+}
+.feature-icon{
+  width:46px; height:46px;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--paper-alt);
+  border-radius:50%;
+  margin-bottom:22px;
+}
+.feature-icon svg{ width:22px; height:22px; color:var(--forest); }
+.feature h3{ margin-bottom:10px; }
+.feature p{ color:var(--ink-soft); font-size:15px; }
+@media (max-width:720px){ .features-grid{ grid-template-columns:1fr; } }
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about-wrap{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:64px; align-items:start; }
+.about-copy p{ color:var(--ink-soft); font-size:16.5px; margin-bottom:22px; }
+.about-tags{ display:flex; flex-wrap:wrap; gap:10px; margin-top:8px; }
+.about-tags span{
+  font-family:var(--font-mono);
+  font-size:11.5px;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  padding:8px 12px;
+  border:1px solid var(--line);
+  border-radius:2px;
+  color:var(--ink-soft);
+}
+.about-panel{
+  background:var(--forest-deep);
+  color:#fff;
+  padding:38px;
+  position:relative;
+}
+.about-panel .station{ color:rgba(255,255,255,0.55); }
+.about-panel blockquote{
+  font-family:var(--font-display);
+  font-size:20px;
+  line-height:1.4;
+  margin:18px 0 0;
+  color:#fff;
+}
+.about-panel .who{
+  margin-top:26px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,0.18);
+  font-family:var(--font-mono);
+  font-size:12px;
+  color:rgba(255,255,255,0.6);
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+}
+@media (max-width:880px){ .about-wrap{ grid-template-columns:1fr; } }
+
+/* ============================================================
+   SERVICES
+   ============================================================ */
+.services-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; margin-top:16px; }
+.service-card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  padding:30px 26px;
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.service-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow); border-color:transparent; }
+.service-icon{ width:44px; height:44px; display:flex; align-items:center; justify-content:center; background:var(--paper-alt); margin-bottom:24px; }
+.service-icon svg{ width:22px; height:22px; color:var(--beacon); }
+.service-card h3{ margin-bottom:10px; }
+.service-card p{ color:var(--ink-soft); font-size:14.5px; }
+@media (max-width:920px){ .services-grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width:560px){ .services-grid{ grid-template-columns:1fr; } }
+
+/* ============================================================
+   TOOLS (request / estimate / verify)
+   ============================================================ */
+.tools-grid{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:22px; align-items:stretch; margin-top:16px; }
+.tools-col{ display:flex; flex-direction:column; gap:22px; }
+.panel{
+  background:var(--panel);
+  border:1px solid var(--line);
+  padding:34px;
+  display:flex; flex-direction:column;
+  flex:1;
+}
+.panel-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:22px; }
+.panel-head h3{ font-size:18px; }
+.field{
+  width:100%;
+  padding:13px 14px;
+  margin-bottom:12px;
+  border:1px solid var(--line);
+  background:var(--paper);
+  border-radius:2px;
+  font-family:var(--font-body);
+  font-size:14.5px;
+  color:var(--ink);
+}
+.field:focus{ border-color:var(--forest); }
+textarea.field{ resize:vertical; min-height:88px; }
+.field-row{ display:flex; gap:12px; }
+.field-row .field{ flex:1; }
+.panel form{ display:flex; flex-direction:column; flex:1; }
+.panel .btn-primary{ align-self:flex-start; margin-top:6px; }
+.hint{ font-family:var(--font-mono); font-size:11.5px; color:var(--ink-soft); margin-top:2px; }
+.msg{ margin-top:14px; font-family:var(--font-mono); font-size:13px; letter-spacing:0.02em; min-height:18px; }
+.msg.success{ color:var(--forest); }
+.msg.error{ color:var(--beacon-dark); }
+.sr-only{ position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+@media (max-width:880px){ .tools-grid{ grid-template-columns:1fr; } }
+
+/* ============================================================
+   FEATURED / CTA BAND
+   ============================================================ */
+.cta-band{
+  background:var(--forest);
+  color:#fff;
+  padding:70px 0;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.cta-band h2{ color:#fff; max-width:16ch; margin:0 auto; }
+.cta-band .btn{ margin-top:30px; }
+.cta-band .btn-primary{ background:var(--beacon); }
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact-top{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:44px; align-items:stretch; margin-top:16px; }
+.contact-text p{ color:var(--ink-soft); margin-bottom:16px; font-size:15.5px; }
+.contact-map{ min-height:280px; border:1px solid var(--line); overflow:hidden; background:var(--paper-alt); }
+.contact-map iframe{ width:100%; height:100%; min-height:280px; border:0; display:block; filter:grayscale(0.15) contrast(1.02); }
+
+.contact-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:44px; }
+.contact-item{ background:var(--panel); padding:28px; display:flex; align-items:center; gap:16px; }
+.contact-item .cicon{ width:38px; height:38px; flex:none; display:flex; align-items:center; justify-content:center; background:var(--paper-alt); border-radius:50%; }
+.contact-item .cicon svg{ width:18px; height:18px; color:var(--forest); }
+.contact-item p{ font-family:var(--font-mono); font-size:13.5px; line-height:1.5; color:var(--ink); }
+@media (max-width:880px){ .contact-top{ grid-template-columns:1fr; } }
+@media (max-width:640px){ .contact-grid{ grid-template-columns:1fr; } }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{ background:var(--forest-deep); color:rgba(255,255,255,0.65); padding:48px 0 32px; }
+.footer-inner{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:18px; padding-bottom:28px; border-bottom:1px solid rgba(255,255,255,0.14); }
+.footer .brand-word b, .footer .brand-word span{ color:#fff; }
+.footer-bottom{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-top:24px; font-family:var(--font-mono); font-size:11.5px; letter-spacing:0.04em; }
+
+/* ============================================================
+   WHATSAPP FLOAT
+   ============================================================ */
+.whatsapp-float{
+  position:fixed; right:22px; bottom:22px; z-index:60;
+  width:58px; height:58px; border-radius:50%;
+  box-shadow:0 10px 30px -8px rgba(10,35,27,0.5);
+  transition:transform .2s ease;
+}
+.whatsapp-float:hover{ transform:scale(1.07); }
+.whatsapp-float img{ width:100%; height:100%; border-radius:50%; }
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.in-view{ opacity:1; transform:translateY(0); }
+.reveal-1{ transition-delay:.05s; }
+.reveal-2{ transition-delay:.14s; }
+.reveal-3{ transition-delay:.22s; }
+.reveal-4{ transition-delay:.30s; }
+</style>
 </head>
 <body>
 
-<!-- Header -->
-<header class="header">
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="header on-hero" id="siteHeader">
   <div class="container">
-    <a href="/" class="logo">
-      <img src="https://ext.same-assets.com/2810750548/2249235439.png" alt="Elbits Logo" />
+    <a href="#top" class="brand">
+      <img src="assets/ELBITS LOGO.png" alt="Elbits logo" height="34" />
+      <span class="brand-word"><b>ELBITS</b><span>Surveyors &amp; Chartered Valuers</span></span>
     </a>
 
     <nav class="nav-desktop">
-      <a href="#whychoose-us">Why Choose Us</a>
-      <a href="#about-us">About Us</a>
-      <a href="#services">Services</a>
-      <a href="#contact-us">Contact</a>
-	  <!-- Social Media Links -->
-<div class="social-links">
-  <a href="https://www.facebook.com/profile.php?id=100054460900044" target="_blank" aria-label="Facebook">
-    <img src="https://ext.same-assets.com/2810750548/3316833373.svg" alt="Facebook" />
-  </a>
-
-  <a href="https://www.instagram.com/elbits.co.ug" target="_blank" aria-label="Instagram">
-    <img src="https://ext.same-assets.com/2810750548/2360312848.svg" alt="Instagram" />
-  </a>
-
-  <a href="https://x.com/Elbits2" target="_blank" aria-label="X">
-    <img src="https://ext.same-assets.com/2810750548/4248482136.svg" alt="X (Twitter)" />
-  </a>
-</div>
+      <div class="nav-links">
+        <a href="#why">Why Choose Us</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#tools">Tools</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="social-links">
+        <a href="https://www.facebook.com/profile.php?id=100054460900044" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5H16l.4-3H13.5V8.4c0-.87.24-1.46 1.5-1.46H16.5V4.35C16.24 4.31 15.35 4.24 14.32 4.24c-2.15 0-3.62 1.31-3.62 3.72v2.15H8.25v3h2.45V21h2.8Z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/elbits.co.ug" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://x.com/Elbits2" target="_blank" rel="noopener" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 3H21l-6.9 7.9L22.3 21H16l-5-6.3L5.2 21H3l7.4-8.5L2.9 3H9.3l4.5 5.7L18.9 3Zm-1.1 16.2h1.2L7.3 4.7H6L17.8 19.2Z"/></svg>
+        </a>
+      </div>
     </nav>
-	
-    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
+
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
     </button>
   </div>
-
-  <!-- Mobile Menu -->
-  <nav class="nav-mobile" id="mobileMenu">
-    <a href="#whychoose-us">Why Choose Us</a>
-    <a href="#about-us">About Us</a>
-    <a href="#services">Services</a>
-    <a href="#contact-us">Contact</a>	
-	<!-- Social Media Links -->
-<div class="social-links">
-  <a href="https://www.facebook.com/profile.php?id=100054460900044" target="_blank" aria-label="Facebook">
-    <img src="https://ext.same-assets.com/2810750548/3316833373.svg" alt="Facebook" />
-  </a>
-
-  <a href="https://www.instagram.com/elbits.co.ug" target="_blank" aria-label="Instagram">
-    <img src="https://ext.same-assets.com/2810750548/2360312848.svg" alt="Instagram" />
-  </a>
-
-  <a href="https://x.com/Elbits2" target="_blank" aria-label="X">
-    <img src="https://ext.same-assets.com/2810750548/4248482136.svg" alt="X (Twitter)" />
-  </a>
-</div>
-	</nav>
-	
 </header>
 
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h1>LAND SURVEYORS, PROPERTY VALUERS & REAL ESTATE AGENTS</h1>
+<div class="nav-scrim" id="navScrim"></div>
+<nav class="nav-mobile" id="mobileMenu" aria-label="Mobile navigation">
+  <a href="#why">Why Choose Us</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#tools">Tools</a>
+  <a href="#contact">Contact</a>
+  <div class="social-links">
+    <a href="https://www.facebook.com/profile.php?id=100054460900044" target="_blank" rel="noopener" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5H16l.4-3H13.5V8.4c0-.87.24-1.46 1.5-1.46H16.5V4.35C16.24 4.31 15.35 4.24 14.32 4.24c-2.15 0-3.62 1.31-3.62 3.72v2.15H8.25v3h2.45V21h2.8Z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/elbits.co.ug" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://x.com/Elbits2" target="_blank" rel="noopener" aria-label="X (Twitter)">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 3H21l-6.9 7.9L22.3 21H16l-5-6.3L5.2 21H3l7.4-8.5L2.9 3H9.3l4.5 5.7L18.9 3Zm-1.1 16.2h1.2L7.3 4.7H6L17.8 19.2Z"/></svg>
+    </a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="top">
+  <svg class="hero-contours" viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="lineFade" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#8FD9BC" stop-opacity="0.55"/>
+        <stop offset="1" stop-color="#8FD9BC" stop-opacity="0.05"/>
+      </linearGradient>
+    </defs>
+    <g fill="none" stroke="url(#lineFade)" stroke-width="1.2">
+      <path d="M-50,120 C 250,60 450,180 750,110 S 1250,40 1450,140"/>
+      <path d="M-50,220 C 220,150 480,280 760,210 S 1230,140 1450,240"/>
+      <path d="M-50,320 C 260,240 470,380 780,300 S 1240,230 1450,340"/>
+      <path d="M-50,420 C 240,340 500,470 790,390 S 1220,320 1450,430"/>
+      <path d="M-50,520 C 230,450 480,560 770,480 S 1250,420 1450,520"/>
+      <path d="M-50,620 C 260,560 470,660 780,590 S 1230,530 1450,620"/>
+      <path d="M-50,720 C 250,660 480,750 760,690 S 1240,640 1450,720"/>
+    </g>
+    <g fill="#E8622C">
+      <circle cx="960" cy="230" r="3.5"/>
+      <circle cx="365" cy="470" r="3.5"/>
+    </g>
+    <g stroke="#E8622C" stroke-width="1" opacity="0.7">
+      <line x1="960" y1="210" x2="960" y2="250"/>
+      <line x1="940" y1="230" x2="980" y2="230"/>
+      <line x1="365" y1="450" x2="365" y2="490"/>
+      <line x1="345" y1="470" x2="385" y2="470"/>
+    </g>
+  </svg>
+  <div class="hero-vignette"></div>
+
+  <div class="hero-inner">
+    <div class="container">
+      <div class="hero-top">
+        <span class="eyebrow on-dark">Land Surveying · Property Valuation · Real Estate — Kampala, Uganda</span>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-text">
+          <h1>We measure the ground truth behind every <em>Ugandan property.</em></h1>
+          <p class="hero-lede">Elbits Consulting Surveyors &amp; Chartered Valuers turns boundaries, coordinates and land records into decisions you can build on — from first beacon to final title.</p>
+          <div class="hero-cta">
+            <a href="#tools" class="btn btn-primary">
+              Request a Service
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="tel:+256785107741" class="btn btn-ghost">Call +256 785 107 741</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <img src="assets/survm.png" alt="Illustration of an Elbits surveyor operating a total station over a marked plot of land" />
+          <div class="stat-card marked">
+            <div class="stat-number"><span id="clientCount">0</span><span class="plus">+</span></div>
+            <div class="stat-label">Clients Served</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="coord-bar">
+        <span>OFFICES LOCATED</span>
+        <span>0.372168° N, 32.578612° E</span>
+        <span>Kampala, Uganda</span>
+        <span>Est 2020. KISASI - KYANJA</span>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Why Choose Us -->
-<section id="whychoose-us" class="why-choose-us">
+<!-- ============================================================
+     WHY CHOOSE US
+     ============================================================ -->
+<section id="why" class="section">
   <div class="container">
-    <div class="section-divider"></div>
-    <h2>Why Choose Us?</h2>
-    <p class="intro-text">
-      We are passionate about creating an incredible client experience and determined to get you the very best results.
-    </p>
+    <div class="section-head reveal">
+      <span class="eyebrow">Why Choose Us</span>
+      <h2>Precision on the ground, clarity on paper.</h2>
+      <p class="lede">We're passionate about creating an incredible client experience — and determined to get you the very best results, every time.</p>
+    </div>
 
     <div class="features-grid">
-      <div class="feature feature-left">
-        <span class="feature-icon" aria-hidden="true">
-          <!-- Map pin icon -->
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/>
-          </svg>
+      <div class="feature marked reveal reveal-1">
+        <span class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-7.5 7-12.5A7 7 0 0 0 5 8.5C5 13.5 12 21 12 21Z"/><circle cx="12" cy="8.5" r="2.5"/></svg>
         </span>
-        <h3>Local know how</h3>
-        <p>We have an intimate knowledge of our area, its property and people.</p>
+        <h3>Local know-how</h3>
+        <p>We have an intimate knowledge of Uganda's terrain, its property markets, and the people who move through them.</p>
       </div>
-
-      <div class="feature feature-right">
-        <span class="feature-icon" aria-hidden="true">
-          <!-- Handshake icon -->
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-            <path d="M21.7 13.35l-2.1-2.1a1 1 0 0 0-1.41 0l-1.06 1.06-2.12-2.12 1.06-1.06a1 1 0 0 0 0-1.41l-2.1-2.1a1 1 0 0 0-1.41 0L9.7 6.88 8.29 5.47a1 1 0 0 0-1.41 0L4.7 7.65a1 1 0 0 0 0 1.41l1.41 1.41L3 13.59V18a2 2 0 0 0 2 2h5.41l6.29-6.29 1.06 1.06a1 1 0 0 0 1.41 0l2.1-2.1a1 1 0 0 0 0-1.42z"/>
-          </svg>
+      <div class="feature marked reveal reveal-2">
+        <span class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 13l5-5 3 3 6-6 6 6"/><path d="M13 5h5v5"/><path d="M2 18l7-7 3 3 4-4"/></svg>
         </span>
         <h3>We want to work with you</h3>
-        <p>It's a simple statement but one quite often lost in the complexities of the real estate industry.</p>
+        <p>A simple statement, but one too often lost in the complexity of real estate. We keep it plain: your goals set the survey line.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- About -->
-<section id="about-us" class="about-us">
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section id="about" class="section section-alt grid-texture">
   <div class="container">
-    <div class="section-divider"></div>
-    <h2>About Us</h2>
+    <div class="about-wrap">
+      <div class="about-copy reveal">
+        <span class="eyebrow">About Us</span>
+        <h2 style="margin-top:14px; margin-bottom:22px;">A firm built for East Africa's next generation of land.</h2>
+        <p>Elbits is a real estate consulting and land surveying firm offering professional services across civil design, land surveying, property valuation, real estate agency, property management and title documentation.</p>
+        <p>We provide superior consulting with quality, integrity and professionalism — with a vision of being East Africa's leader in surveying and geospatial solutions that exceed our clients' expectations. Elbits pledges to be responsive through the quality and timeliness of every service we deliver.</p>
+        <div class="about-tags">
+          <span>Civil Design</span>
+          <span>Land Surveying</span>
+          <span>Property Valuation</span>
+          <span>Real Estate Agency</span>
+          <span>Property Management</span>
+          <span>Title Documentation</span>
+        </div>
+      </div>
 
-    <p class="about-text">
-      Elbits is a real estate consulting and land surveying firm that offers professional services in the areas of civil design, land surveying, property valuation, real estate agency, property management, title documentation and other various real estate services. Our firm provides superior consulting services with quality, integrity and professionalism. With a vision of being East Africa's leader in providing surveying and geospatial solutions that exceed our clients' expectations, Elbits pledges to be responsive to our clients through the quality and timeliness of our services.
-    </p>
-
-    <div class="text-center">
-      <a href="#contact-us" class="btn btn-primary">MORE ABOUT US</a>
+      <div class="about-panel marked reveal reveal-2">
+        <span class="station">Vision — Filed 2026</span>
+        <blockquote>"To be East Africa's leader in providing surveying and geospatial solutions that exceed our clients' expectations."</blockquote>
+        <div class="who">Elbits Consulting Surveyors &amp; Chartered Valuers Co. Ltd</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Services -->
-<section id="services" class="services">
+<!-- ============================================================
+     SERVICES
+     ============================================================ -->
+<section id="services" class="section">
   <div class="container">
-    <div class="section-divider"></div>
-    <h2>Services</h2>
+    <div class="section-head reveal">
+      <span class="eyebrow">Services</span>
+      <h2>Four disciplines, one reference point.</h2>
+    </div>
 
     <div class="services-grid">
-      <div class="service-item">
-        <img src="https://ext.same-assets.com/2810750548/3250656706.png" alt="Land Surveying" />
+      <div class="service-card marked reveal reveal-1">
+        <span class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v4M12 21v-6M4 21l8-8 8 8"/><circle cx="12" cy="9" r="2"/></svg>
+        </span>
         <h3>Land Surveying</h3>
+        <p>Boundary, topographic and cadastral surveys carried out to national standards, beacon by beacon.</p>
       </div>
-
-      <div class="service-item">
-        <img src="https://ext.same-assets.com/2810750548/1974368970.png" alt="Property Valuation" />
+      <div class="service-card marked reveal reveal-2">
+        <span class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+        </span>
         <h3>Property Valuation</h3>
+        <p>Chartered valuations for residential, commercial and land assets — for sale, finance, or dispute.</p>
       </div>
-
-      <div class="service-item">
-        <img src="https://ext.same-assets.com/2810750548/3230713808.png" alt="Real Estate Agency" />
+      <div class="service-card marked reveal reveal-3">
+        <span class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-8h6v8"/></svg>
+        </span>
         <h3>Real Estate Agency</h3>
+        <p>Sourcing, listing and negotiating land and property across Kampala and beyond.</p>
       </div>
-
-      <div class="service-item">
-        <img src="https://ext.same-assets.com/2810750548/366393969.png" alt="Professional Consultancy" />
+      <div class="service-card marked reveal reveal-4">
+        <span class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
+        </span>
         <h3>Professional Consultancy</h3>
+        <p>Senior guidance on civil design, land records and real estate strategy from the ground up.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Request a Service (left) and Valuation + Verify (right stacked) -->
-<section>
+<!-- ============================================================
+     TOOLS — request / estimate / verify
+     ============================================================ -->
+<section id="tools" class="section section-alt">
   <div class="container">
-    <div class="section-divider" style="margin-top:30px;"></div>
-    <h2>Request a Service</h2>
+    <div class="section-head reveal">
+      <span class="eyebrow">Field Tools</span>
+      <h2>Start a request, or check your records.</h2>
+      <p class="lede">Submit a service request directly, get an indicative valuation, or verify a survey job already on file.</p>
+    </div>
 
-    <div class="two-col equal-height" role="region" aria-label="Service request and valuation area" style="margin-top:20px;">
-
-      <!-- Left column: Request a Service (single tall card) -->
-      <div class="col-left" style="flex:1; display:flex; flex-direction:column;">
-        <div class="card" aria-labelledby="requestHeading" style="display:flex;flex-direction:column;flex:1;">
-          <h3 id="requestHeading">Request a Service</h3>
-
-          <form id="serviceForm" aria-label="Service request form" style="display:flex;flex-direction:column;flex:1;">
+    <div class="tools-grid">
+      <div class="tools-col">
+        <div class="panel marked reveal reveal-1" style="flex:1;">
+          <div class="panel-head"><h3>Request a Service</h3><span class="station"></span></div>
+          <form id="serviceForm" aria-label="Service request form">
             <label for="serviceSelect" class="sr-only">Select Service</label>
-            <select id="serviceSelect" name="service" required>
+            <select id="serviceSelect" class="field" required>
               <option value="">Select Service</option>
               <option>Land Surveying</option>
               <option>Property Valuation</option>
@@ -247,352 +829,363 @@
             </select>
 
             <label for="location" class="sr-only">Location or District</label>
-            <input id="location" name="location" placeholder="Location / District" required>
+            <input id="location" class="field" placeholder="Location / District" required>
 
-            <label for="requestName" class="sr-only">Your Name</label>
-            <input id="requestName" name="name" placeholder="Your Name" required>
-
-            <label for="requestPhone" class="sr-only">Phone Number</label>
-            <input id="requestPhone" name="phone" placeholder="Phone Number" required>
+            <div class="field-row">
+              <div style="flex:1;">
+                <label for="requestName" class="sr-only">Your Name</label>
+                <input id="requestName" class="field" placeholder="Your Name" required>
+              </div>
+              <div style="flex:1;">
+                <label for="requestPhone" class="sr-only">Phone Number</label>
+                <input id="requestPhone" class="field" placeholder="Phone Number" required>
+              </div>
+            </div>
 
             <label for="details" class="sr-only">Additional Details</label>
-            <textarea id="details" name="details" placeholder="Additional Details" style="flex:1;"></textarea>
+            <textarea id="details" class="field" placeholder="Additional details (optional)" style="flex:1;"></textarea>
 
-            <div style="margin-top:12px;">
-              <button type="submit">Submit Request</button>
-            </div>
+            <button type="submit" class="btn btn-primary">Submit Request</button>
           </form>
-
-          <p id="formMsg" class="msg" aria-live="polite" style="margin-top:12px;"></p>
+          <p id="formMsg" class="msg" aria-live="polite"></p>
         </div>
       </div>
 
-      <!-- Right column: two stacked cards (Valuation on top, Verify below) -->
-      <div class="col-right" style="flex:1; display:flex; flex-direction:column; gap:18px;">
-        <!-- VALUATION (top) -->
-        <div class="card valuation-card" aria-labelledby="valuationHeading" style="background:var(--light); display:flex; flex-direction:column;">
-          <h3 id="valuationHeading">Property Valuation Estimator</h3>
-
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <label for="type" class="sr-only">Property type</label>
-            <select id="type">
-              <option value="1">Residential</option>
-              <option value="1.5">Commercial</option>
-              <option value="0.8">Land</option>
-            </select>
-
-            <label for="size" class="sr-only">Approx size</label>
-            <input type="number" id="size" placeholder="Approx Size (Sq Meters)" min="0">
-
-            <div style="display:flex;gap:8px;align-items:center;margin-top:8px;">
-              <button id="estimateBtn" type="button">Estimate</button>
-              <small style="color:var(--muted);">*Indicative only. Subject to inspection.</small>
-            </div>
-
-            <p id="result" class="msg" aria-live="polite" style="margin-top:8px;"></p>
+      <div class="tools-col">
+        <div class="panel marked reveal reveal-2">
+          <div class="panel-head"><h3>Valuation Estimator</h3><span class="station"></span></div>
+          <label for="type" class="sr-only">Property type</label>
+          <select id="type" class="field">
+            <option value="1">Residential</option>
+            <option value="1.5">Commercial</option>
+            <option value="0.8">Land</option>
+          </select>
+          <label for="size" class="sr-only">Approx size</label>
+          <input type="number" id="size" class="field" placeholder="Approx size (sq meters)" min="0">
+          <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+            <button id="estimateBtn" type="button" class="btn btn-line">Estimate</button>
+            <span class="hint">Indicative only — subject to inspection.</span>
           </div>
+          <p id="result" class="msg" aria-live="polite"></p>
         </div>
 
-        <!-- VERIFY (bottom) -->
-        <div class="card verify-card" aria-labelledby="verifyHeading" style="display:flex;flex-direction:column;">
-          <h3 id="verifyHeading">Verify a Survey</h3>
-
+        <div class="panel marked reveal reveal-3">
+          <div class="panel-head"><h3>Verify a Survey</h3><span class="station"></span></div>
           <label for="job" class="sr-only">Survey Job ID</label>
-          <input id="job" placeholder="Enter Survey Job ID">
-
-          <div style="display:flex;gap:8px;align-items:center;margin-top:8px;">
-            <button id="verifyBtn" type="button">Verify</button>
-            <small style="color:var(--muted);">Enter the job ID provided on your survey report.</small>
+          <input id="job" class="field" placeholder="Enter Survey Job ID">
+          <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+            <button id="verifyBtn" type="button" class="btn btn-line">Verify</button>
+            <span class="hint">Job ID is printed on your survey report.</span>
           </div>
-
-          <p id="verifyResult" class="msg" aria-live="polite" style="margin-top:8px;"></p>
+          <p id="verifyResult" class="msg" aria-live="polite"></p>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- Script to match heights so left card equals combined right cards -->
-  <script>
-    (function() {
-      function matchHeights() {
-        const container = document.querySelector('.two-col.equal-height');
-        if (!container) return;
-
-        const leftCard = container.querySelector('.col-left .card');
-        const rightTop = container.querySelector('.col-right .valuation-card');
-        const rightBottom = container.querySelector('.col-right .verify-card');
-
-        // Reset heights
-        leftCard.style.height = '';
-        rightTop.style.height = '';
-        rightBottom.style.height = '';
-
-        // Allow layout to settle
-        const leftHeight = leftCard.offsetHeight;
-        const rightCombined = rightTop.offsetHeight + rightBottom.offsetHeight;
-
-        if (rightCombined < leftHeight) {
-          const extra = leftHeight - rightCombined;
-          const topShare = rightTop.offsetHeight / rightCombined || 0.5;
-          const bottomShare = rightBottom.offsetHeight / rightCombined || 0.5;
-          rightTop.style.height = (rightTop.offsetHeight + Math.round(extra * topShare)) + 'px';
-          rightBottom.style.height = (rightBottom.offsetHeight + Math.round(extra * bottomShare)) + 'px';
-        } else if (rightCombined > leftHeight) {
-          leftCard.style.height = rightCombined + 'px';
-        }
-      }
-
-      function debounce(fn, wait) {
-        let t;
-        return function() {
-          clearTimeout(t);
-          t = setTimeout(fn, wait);
-        };
-      }
-
-      document.addEventListener('DOMContentLoaded', function() {
-        matchHeights();
-        setTimeout(matchHeights, 300);
-      });
-
-      window.addEventListener('resize', debounce(matchHeights, 120));
-    })();
-  </script>
 </section>
 
-<!-- Featured Property Section -->
-<section class="featured-property">
-  <div class="container text-center">
-    <h2>Find a commercial or residential plot of land</h2>
-    <a href="#contact-us" class="btn btn-secondary">
-      FEATURED PROPERTY
-    </a>
+<!-- ============================================================
+     CTA BAND
+     ============================================================ -->
+<section class="cta-band">
+  <div class="container reveal">
+    <span class="eyebrow" style="color:#CFEBE0;">Featured</span>
+    <h2 style="margin-top:14px;">Find a commercial or residential plot of land</h2>
+    <a href="#contact" class="btn btn-primary">See Featured Property</a>
   </div>
 </section>
 
-<!-- Contact Section -->
-<section id="contact-us" class="contact">
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section id="contact" class="section">
   <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Contact</span>
+      <h2>Let's get in touch.</h2>
+    </div>
 
-    <div class="section-divider"></div>
-    <h2>Let's Get In Touch!</h2>
-
-    <!-- Intro + Map -->
     <div class="contact-top">
-
-      <!-- Text -->
-      <div class="contact-text">
-        <p>
-          Are you in need of a professional surveyor? Do you want your property
-          valued? Or you need land to buy? Maybe you want real estate knowledge
-          from a senior realtor?
-        </p>
-
-        <p>
-          Give us a call or send us an email, you can also follow or contact us
-          through our social media platforms
-        </p>
+      <div class="contact-text reveal reveal-1">
+        <p>Are you in need of a professional surveyor? Do you want your property valued? Or do you need land to buy? Maybe you want real estate knowledge from a senior realtor?</p>
+        <p>Give us a call or send us an email — you can also follow or contact us through our social media platforms.</p>
       </div>
-
-      <!-- Google Map -->
-      <div class="contact-map">
+      <div class="contact-map marked reveal reveal-2">
         <iframe
           src="https://www.google.com/maps?q=0.372168,32.578612&z=15&output=embed"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          allowfullscreen>
-        </iframe>
+          title="Elbits office location map"
+          allowfullscreen></iframe>
       </div>
-
     </div>
 
-    <!-- Contact Details -->
-    <div class="contact-grid">
+    <div class="contact-grid reveal reveal-3">
       <div class="contact-item">
-        <img src="https://ext.same-assets.com/2810750548/2033510453.png" alt="Phone" />
-        <p>+256785107741 / +256773864760</p>
+        <span class="cicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.99.36 1.96.68 2.9a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.45c.94.32 1.91.55 2.9.68A2 2 0 0 1 22 16.9Z"/></svg></span>
+        <p>+256 785 107 741<br>+256 773 864 760</p>
       </div>
-
       <div class="contact-item">
-        <img src="https://ext.same-assets.com/2810750548/3068795649.png" alt="WhatsApp" />
-        <p>+256705007741 / +256780481056</p>
+        <span class="cicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-9.5 8.3 8.5 8.5 0 0 1-3.8-1L3 20l1.2-4.7A8.38 8.38 0 0 1 3 11.5 8.5 8.5 0 1 1 21 11.5Z"/></svg></span>
+        <p>+256 705 007 741<br>+256 780 481 056</p>
       </div>
-
       <div class="contact-item">
-        <img src="https://ext.same-assets.com/2810750548/765263318.png" alt="Email" />
+        <span class="cicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m4 6.5 8 6 8-6"/></svg></span>
         <p>info@elbits.co.ug</p>
       </div>
     </div>
-  
   </div>
 </section>
 
-<!-- Footer -->
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
 <footer class="footer">
-  <div class="container text-center">
-    <div class="footer-divider"></div>
-    <p class="copyright">
-      Copyright © 2026 Elbits Consulting Surveyors and Chartered Valuers Co. Ltd <br> All Rights Reserved
-    </p>
+  <div class="container">
+    <div class="footer-inner">
+      <a href="#top" class="brand">
+        <img src="assets/ELBITS LOGO.png" alt="Elbits logo" height="34" />
+        <span class="brand-word"><b>ELBITS</b><span>Surveyors &amp; Chartered Valuers</span></span>
+      </a>
+      <div class="social-links">
+        <a href="https://www.facebook.com/profile.php?id=100054460900044" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5H16l.4-3H13.5V8.4c0-.87.24-1.46 1.5-1.46H16.5V4.35C16.24 4.31 15.35 4.24 14.32 4.24c-2.15 0-3.62 1.31-3.62 3.72v2.15H8.25v3h2.45V21h2.8Z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/elbits.co.ug" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://x.com/Elbits2" target="_blank" rel="noopener" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 3H21l-6.9 7.9L22.3 21H16l-5-6.3L5.2 21H3l7.4-8.5L2.9 3H9.3l4.5 5.7L18.9 3Zm-1.1 16.2h1.2L7.3 4.7H6L17.8 19.2Z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Elbits Consulting Surveyors and Chartered Valuers Co. Ltd — All Rights Reserved</span>
+      <span>0.372168° N, 32.578612° E — Kampala, UG</span>
+    </div>
   </div>
 </footer>
 
-<!-- START WhatsApp Button (original floating setup preserved) -->
-<a href="https://wa.me/256785107741" target="_blank" class="whatsapp-float" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-    <img src="/whatsapp-icon.png" alt="WhatsApp Icon" class="whatsapp-icon-img">
+<!-- WhatsApp float -->
+<a href="https://wa.me/256785107741" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
+  <img src="assets/whatsapp-icon.png" alt="WhatsApp" />
 </a>
-<!-- END WhatsApp Button -->
 
-<!-- Inline JS: service form, estimator, verify, mobile menu (keeps original behavior) -->
 <script>
-  // Mobile menu toggle (keeps original behavior)
-  (function(){
-    const btn = document.getElementById('mobileMenuBtn');
-    const menu = document.getElementById('mobileMenu');
-    if (btn && menu) {
-      btn.addEventListener('click', () => {
-        const expanded = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!expanded));
-        menu.classList.toggle('open');
-      });
-      document.addEventListener('click', (e) => {
-        if (!menu.contains(e.target) && !btn.contains(e.target) && menu.classList.contains('open')) {
-          menu.classList.remove('open');
-          btn.setAttribute('aria-expanded', 'false');
-        }
-      });
-    }
-  })();
+/* ============================================================
+   HEADER: scroll state
+   ============================================================ */
+(function(){
+  const header = document.getElementById('siteHeader');
+  const hero = document.getElementById('top');
+  function onScroll(){
+    const scrolled = window.scrollY > 40;
+    header.classList.toggle('scrolled', scrolled);
+    const heroBottom = hero.offsetTop + hero.offsetHeight - 90;
+    header.classList.toggle('on-hero', window.scrollY < heroBottom && !scrolled);
+  }
+  document.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+})();
 
-  /* Service Request form handling */
-  (function(){
-    const form = document.getElementById('serviceForm');
-    const msg = document.getElementById('formMsg');
+/* ============================================================
+   MOBILE MENU
+   ============================================================ */
+(function(){
+  const btn = document.getElementById('mobileMenuBtn');
+  const menu = document.getElementById('mobileMenu');
+  const scrim = document.getElementById('navScrim');
+  function closeMenu(){
+    menu.classList.remove('open');
+    scrim.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+  }
+  function toggleMenu(){
+    const isOpen = menu.classList.toggle('open');
+    scrim.classList.toggle('open', isOpen);
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', String(isOpen));
+  }
+  btn.addEventListener('click', toggleMenu);
+  scrim.addEventListener('click', closeMenu);
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+})();
 
-    function showMessage(text, type) {
-      msg.textContent = text;
-      msg.className = 'msg ' + (type === 'error' ? 'error' : 'success');
-    }
-
-    if (!form) return;
-
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      showMessage('', '');
-
-      const service = document.getElementById('serviceSelect').value.trim();
-      const location = document.getElementById('location').value.trim();
-      const name = document.getElementById('requestName').value.trim();
-      const phone = document.getElementById('requestPhone').value.trim();
-      const details = document.getElementById('details').value.trim();
-
-      if (!service || !location || !name || !phone) {
-        showMessage('Please complete all required fields.', 'error');
-        return;
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+(function(){
+  const items = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(el => el.classList.add('in-view'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
       }
-
-      // Basic phone validation
-      const phoneClean = phone.replace(/\s+/g, '');
-      if (!/^\+?\d{7,15}$/.test(phoneClean)) {
-        showMessage('Please enter a valid phone number (digits only, include country code if possible).', 'error');
-        return;
-      }
-
-      const payload = {
-        service, location, name, phone: phoneClean, details,
-        submittedAt: new Date().toISOString()
-      };
-
-      // Simulate submission (replace with real POST to server)
-      showMessage('Submitting request...', 'success');
-      setTimeout(() => {
-        console.log('Service request payload:', payload);
-        showMessage('Request submitted. We will contact you shortly.', 'success');
-        form.reset();
-      }, 700);
     });
-  })();
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  items.forEach(el => io.observe(el));
+})();
 
-  /* Valuation estimator */
-  (function(){
-    const estimateBtn = document.getElementById('estimateBtn');
-    const typeEl = document.getElementById('type');
-    const sizeEl = document.getElementById('size');
-    const resultEl = document.getElementById('result');
+/* ============================================================
+   FOOTER YEAR
+   ============================================================ */
+document.getElementById('year').textContent = new Date().getFullYear();
 
-    function formatNumber(n) {
-      return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+/* ============================================================
+   CLIENTS SERVED COUNT-UP
+   ============================================================ */
+(function(){
+  const el = document.getElementById('clientCount');
+  if (!el) return;
+  const target = 10000;
+  const duration = 1600;
+
+  function formatNumber(n){
+    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  function run(){
+    const start = performance.now();
+    function tick(now){
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = formatNumber(Math.round(eased * target));
+      if (progress < 1) requestAnimationFrame(tick);
     }
+    requestAnimationFrame(tick);
+  }
 
-    function estimate() {
-      resultEl.textContent = '';
-      const multiplier = parseFloat(typeEl.value) || 1;
-      const size = parseFloat(sizeEl.value);
-
-      if (!size || size <= 0) {
-        resultEl.className = 'msg error';
-        resultEl.textContent = 'Please enter a valid size in square meters.';
-        return;
-      }
-
-      // Base rate per square meter (indicative). Adjust to your local pricing.
-      const baseRate = 50000; // UGX per sqm (example)
-      const estimateValue = Math.round(size * baseRate * multiplier);
-      resultEl.className = 'msg success';
-      resultEl.textContent = 'Indicative valuation: UGX ' + formatNumber(estimateValue);
-    }
-
-    if (estimateBtn) estimateBtn.addEventListener('click', estimate);
-  })();
-
-  /* Verify survey */
-  (function(){
-    const verifyBtn = document.getElementById('verifyBtn');
-    const jobEl = document.getElementById('job');
-    const out = document.getElementById('verifyResult');
-
-    function escapeHtml(str) {
-      return String(str).replace(/[&<>"'`=\/]/g, function(s) {
-        return ({
-          '&': '&amp;',
-          '<': '&lt;',
-          '>': '&gt;',
-          '"': '&quot;',
-          "'": '&#39;',
-          '/': '&#x2F;',
-          '`': '&#x60;',
-          '=': '&#x3D;'
-        })[s];
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { run(); io.disconnect(); }
       });
+    }, { threshold: 0.3 });
+    io.observe(el);
+  } else {
+    run();
+  }
+})();
+
+/* ============================================================
+   SERVICE REQUEST FORM
+   ============================================================ */
+(function(){
+  const form = document.getElementById('serviceForm');
+  const msg = document.getElementById('formMsg');
+  if (!form) return;
+
+  function showMessage(text, type) {
+    msg.textContent = text;
+    msg.className = 'msg ' + (type === 'error' ? 'error' : 'success');
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    showMessage('', '');
+
+    const service = document.getElementById('serviceSelect').value.trim();
+    const location = document.getElementById('location').value.trim();
+    const name = document.getElementById('requestName').value.trim();
+    const phone = document.getElementById('requestPhone').value.trim();
+    const details = document.getElementById('details').value.trim();
+
+    if (!service || !location || !name || !phone) {
+      showMessage('Please complete all required fields.', 'error');
+      return;
     }
 
-    function verify() {
-      out.textContent = '';
-      const id = jobEl.value.trim();
-      if (!id) {
-        out.className = 'msg error';
-        out.textContent = 'Please enter a Survey Job ID.';
-        return;
-      }
-
-      // Mock verification: treat IDs starting with ELB or numeric IDs of length >=6 as valid
-      const normalized = id.toUpperCase();
-      const isValid = normalized.startsWith('ELB') || /^\d{6,}$/.test(id);
-
-      if (isValid) {
-        out.className = 'msg success';
-        out.innerHTML = '<strong>Verified</strong>: Survey job <em>' + escapeHtml(id) + '</em> is on record. For full details contact info@elbits.co.ug.';
-      } else {
-        out.className = 'msg error';
-        out.textContent = 'No record found for the provided Job ID. Please check and try again or contact us.';
-      }
+    const phoneClean = phone.replace(/\s+/g, '');
+    if (!/^\+?\d{7,15}$/.test(phoneClean)) {
+      showMessage('Please enter a valid phone number, digits only.', 'error');
+      return;
     }
 
-    if (verifyBtn) verifyBtn.addEventListener('click', verify);
-  })();
+    const payload = { service, location, name, phone: phoneClean, details, submittedAt: new Date().toISOString() };
+
+    showMessage('Submitting request…', 'success');
+    setTimeout(() => {
+      console.log('Service request payload:', payload);
+      showMessage('Request submitted — we will contact you shortly.', 'success');
+      form.reset();
+    }, 700);
+  });
+})();
+
+/* ============================================================
+   VALUATION ESTIMATOR
+   ============================================================ */
+(function(){
+  const estimateBtn = document.getElementById('estimateBtn');
+  const typeEl = document.getElementById('type');
+  const sizeEl = document.getElementById('size');
+  const resultEl = document.getElementById('result');
+  if (!estimateBtn) return;
+
+  function formatNumber(n) {
+    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  estimateBtn.addEventListener('click', function(){
+    resultEl.textContent = '';
+    const multiplier = parseFloat(typeEl.value) || 1;
+    const size = parseFloat(sizeEl.value);
+
+    if (!size || size <= 0) {
+      resultEl.className = 'msg error';
+      resultEl.textContent = 'Please enter a valid size in square meters.';
+      return;
+    }
+
+    const baseRate = 50000; // UGX per sqm, indicative
+    const estimateValue = Math.round(size * baseRate * multiplier);
+    resultEl.className = 'msg success';
+    resultEl.textContent = 'Indicative valuation: UGX ' + formatNumber(estimateValue);
+  });
+})();
+
+/* ============================================================
+   VERIFY SURVEY
+   ============================================================ */
+(function(){
+  const verifyBtn = document.getElementById('verifyBtn');
+  const jobEl = document.getElementById('job');
+  const out = document.getElementById('verifyResult');
+  if (!verifyBtn) return;
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"'`=\/]/g, s => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;','/':'&#x2F;','`':'&#x60;','=':'&#x3D;'
+    })[s]);
+  }
+
+  verifyBtn.addEventListener('click', function(){
+    out.textContent = '';
+    const id = jobEl.value.trim();
+    if (!id) {
+      out.className = 'msg error';
+      out.textContent = 'Please enter a Survey Job ID.';
+      return;
+    }
+
+    const normalized = id.toUpperCase();
+    const isValid = normalized.startsWith('ELB') || /^\d{6,}$/.test(id);
+
+    if (isValid) {
+      out.className = 'msg success';
+      out.innerHTML = 'Verified — job <strong>' + escapeHtml(id) + '</strong> is on record. Contact info@elbits.co.ug for full details.';
+    } else {
+      out.className = 'msg error';
+      out.textContent = 'No record found for that Job ID. Please check and try again, or contact us.';
+    }
+  });
+})();
 </script>
-
-<!-- JS -->
-<script src="js/main.js"></script>
 </body>
 </html>
