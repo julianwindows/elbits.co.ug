@@ -16,19 +16,19 @@
    ELBITS — DESIGN TOKENS
    ============================================================ */
 :root{
-  --ink:        #0F241D;   /* primary text, deep forest-charcoal */
-  --ink-soft:   #3C5049;   /* secondary text */
+  --ink:        #04255A;   /* primary text, deep forest-charcoal */
+  --ink-soft:   #04255A;   /* secondary text */
   --paper:      #F1F4EE;   /* page background, sage paper */
   --paper-alt:  #E6EBE1;   /* alternate section background */
   --panel:      #FFFFFF;   /* card surfaces */
-  --forest:     #0B6B4F;   /* brand green */
-  --forest-deep:#0A2A20;   /* hero / dark section background */
-  --forest-line:#173C30;   /* lines on dark background */
-  --beacon:     #E8622C;   /* survey-stake orange — the one accent */
-  --beacon-dark:#C64F20;
-  --line:       rgba(15,36,29,0.12);
-  --line-soft:  rgba(15,36,29,0.07);
-  --shadow:     0 20px 45px -25px rgba(10,35,27,0.35);
+  --forest:     #04255A;   /* brand green */
+  --forest-deep:#04255A;   /* hero / dark section background */
+  --forest-line:#04255A;   /* lines on dark background */
+  --beacon:     #EA9D1C;   /* survey-stake orange — the one accent */
+  --beacon-dark:#EA9D1C;
+  --line:       rgba(4,37,90,0.12);
+  --line-soft:  rgba(4,37,90,0.07);
+  --shadow:     0 20px 45px -25px rgba(4,37,90,0.35);
 
   --font-display: 'Space Grotesk', sans-serif;
   --font-body:    'Inter', sans-serif;
@@ -83,7 +83,7 @@ button{ font-family:inherit; }
   transform:rotate(45deg);
   flex:none;
 }
-.on-dark .eyebrow{ color:#8FD9BC; }
+.on-dark .eyebrow{ color:#04255A; }
 .on-dark .eyebrow::before{ background:var(--beacon); }
 
 h1,h2,h3{
@@ -255,7 +255,7 @@ p{ margin:0; }
 .nav-mobile .social-links{ border-left:none; padding-left:0; margin-top:14px; }
 
 .nav-scrim{
-  display:none; position:fixed; inset:0; background:rgba(10,35,27,0.4); z-index:98;
+  display:none; position:fixed; inset:0; background:rgba(4,37,90,0.4); z-index:98;
   opacity:0; transition:opacity .25s ease;
 }
 .nav-scrim.open{ display:block; opacity:1; }
@@ -282,8 +282,8 @@ p{ margin:0; }
 .hero-vignette{
   position:absolute; inset:0;
   background:
-    radial-gradient(60% 55% at 78% 18%, rgba(11,107,79,0.35), transparent 60%),
-    linear-gradient(180deg, rgba(10,35,27,0.15) 0%, rgba(10,35,27,0.55) 62%, rgba(10,35,27,0.92) 100%);
+    radial-gradient(60% 55% at 78% 18%, rgba(4,37,90,0.35), transparent 60%),
+    linear-gradient(180deg, rgba(4,37,90,0.15) 0%, rgba(4,37,90,0.55) 62%, rgba(4,37,90,0.92) 100%);
 }
 .hero-inner{
   position:relative; z-index:2;
@@ -303,7 +303,7 @@ p{ margin:0; }
   max-width:16ch;
   margin-top:22px;
 }
-.hero h1 em{ font-style:normal; color:#8FD9BC; }
+.hero h1 em{ font-style:normal; color:#04255A; }
 .hero-lede{
   margin-top:22px;
   max-width:52ch;
@@ -327,8 +327,8 @@ p{ margin:0; }
   position:absolute;
   left:-8px;
   bottom:6%;
-  background:rgba(10,35,27,0.72);
-  border:1px solid rgba(143,217,188,0.35);
+  background:rgba(4,37,90,0.72);
+  border:1px solid rgba(4,37,90,0.35);
   backdrop-filter:blur(10px);
   -webkit-backdrop-filter:blur(10px);
   padding:20px 24px;
@@ -553,7 +553,7 @@ textarea.field{ resize:vertical; min-height:88px; }
 .whatsapp-float{
   position:fixed; right:22px; bottom:22px; z-index:60;
   width:58px; height:58px; border-radius:50%;
-  box-shadow:0 10px 30px -8px rgba(10,35,27,0.5);
+  box-shadow:0 10px 30px -8px rgba(4,37,90,0.5);
   transition:transform .2s ease;
 }
 .whatsapp-float:hover{ transform:scale(1.07); }
@@ -636,8 +636,8 @@ textarea.field{ resize:vertical; min-height:88px; }
   <svg class="hero-contours" viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <defs>
       <linearGradient id="lineFade" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#8FD9BC" stop-opacity="0.55"/>
-        <stop offset="1" stop-color="#8FD9BC" stop-opacity="0.05"/>
+        <stop offset="0" stop-color="#04255A" stop-opacity="0.55"/>
+        <stop offset="1" stop-color="#04255A" stop-opacity="0.05"/>
       </linearGradient>
     </defs>
     <g fill="none" stroke="url(#lineFade)" stroke-width="1.2">
@@ -649,11 +649,11 @@ textarea.field{ resize:vertical; min-height:88px; }
       <path d="M-50,620 C 260,560 470,660 780,590 S 1230,530 1450,620"/>
       <path d="M-50,720 C 250,660 480,750 760,690 S 1240,640 1450,720"/>
     </g>
-    <g fill="#E8622C">
+    <g fill="#EA9D1C">
       <circle cx="960" cy="230" r="3.5"/>
       <circle cx="365" cy="470" r="3.5"/>
     </g>
-    <g stroke="#E8622C" stroke-width="1" opacity="0.7">
+    <g stroke="#EA9D1C" stroke-width="1" opacity="0.7">
       <line x1="960" y1="210" x2="960" y2="250"/>
       <line x1="940" y1="230" x2="980" y2="230"/>
       <line x1="365" y1="450" x2="365" y2="490"/>
@@ -889,7 +889,7 @@ textarea.field{ resize:vertical; min-height:88px; }
      ============================================================ -->
 <section class="cta-band">
   <div class="container reveal">
-    <span class="eyebrow" style="color:#CFEBE0;">Featured</span>
+    <span class="eyebrow" style="color:#04255A;">Featured</span>
     <h2 style="margin-top:14px;">Find a commercial or residential plot of land</h2>
     <a href="#contact" class="btn btn-primary">See Featured Property</a>
   </div>
