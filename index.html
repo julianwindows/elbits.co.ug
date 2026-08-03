@@ -457,7 +457,7 @@ p{ margin:0; }
 /* ============================================================
    SERVICES
    ============================================================ */
-.services-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; margin-top:16px; }
+.services-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:16px; }
 .service-card{
   background:var(--panel);
   border:1px solid var(--line);
@@ -507,6 +507,25 @@ textarea.field{ resize:vertical; min-height:88px; }
 .msg{ margin-top:14px; font-family:var(--font-mono); font-size:13px; letter-spacing:0.02em; min-height:18px; }
 .msg.success{ color:var(--forest); }
 .msg.error{ color:var(--beacon-dark); }
+.convert-output{
+  margin-top:16px;
+  border-top:1px solid var(--line);
+  padding-top:16px;
+  display:none;
+}
+.convert-output.show{ display:block; }
+.convert-output .cr-value{ font-family:var(--font-display); font-weight:700; font-size:28px; color:var(--forest); line-height:1.15; }
+.convert-output .cr-label{ margin-top:4px; font-family:var(--font-mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); }
+.convert-swap{
+  display:flex; align-items:center; justify-content:center;
+  width:34px; height:34px; margin:-2px auto 10px;
+  border:1px solid var(--line); border-radius:50%;
+  background:var(--paper); cursor:pointer;
+  color:var(--ink-soft);
+  transition:border-color .18s ease, color .18s ease, transform .18s ease;
+}
+.convert-swap:hover{ border-color:var(--forest); color:var(--forest); transform:rotate(180deg); }
+.convert-swap svg{ width:16px; height:16px; }
 .sr-only{ position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
 @media (max-width:880px){ .tools-grid{ grid-template-columns:1fr; } }
 
@@ -570,6 +589,8 @@ textarea.field{ resize:vertical; min-height:88px; }
 .reveal-2{ transition-delay:.14s; }
 .reveal-3{ transition-delay:.22s; }
 .reveal-4{ transition-delay:.30s; }
+.reveal-5{ transition-delay:.38s; }
+.reveal-6{ transition-delay:.46s; }
 </style>
 </head>
 <body>
@@ -769,7 +790,7 @@ textarea.field{ resize:vertical; min-height:88px; }
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Services</span>
-      <h2>Four disciplines, one reference point.</h2>
+      <h2>Six disciplines, one reference point.</h2>
     </div>
 
     <div class="services-grid">
@@ -800,6 +821,20 @@ textarea.field{ resize:vertical; min-height:88px; }
         </span>
         <h3>Professional Consultancy</h3>
         <p>Senior guidance on land issues and real estate strategy from the ground up.</p>
+      </div>
+      <div class="service-card marked reveal reveal-5">
+        <span class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="15" r="4"/><path d="M11 12 20 3"/><path d="M16 7l3 3"/><path d="M18.5 4.5l2 2"/></svg>
+        </span>
+        <h3>Property Management</h3>
+        <p>Day-to-day oversight of rental and commercial property — tenants, maintenance and rent collection handled for you.</p>
+      </div>
+      <div class="service-card marked reveal reveal-6">
+        <span class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="9" r="6"/><path d="M9 14.5 7 22l5-3 5 3-2-7.5"/></svg>
+        </span>
+        <h3>Appraisal</h3>
+        <p>Independent, certified appraisals for banks, insurers and legal proceedings, backed by full inspection and documentation.</p>
       </div>
     </div>
   </div>
@@ -856,20 +891,45 @@ textarea.field{ resize:vertical; min-height:88px; }
 
       <div class="tools-col">
         <div class="panel marked reveal reveal-2">
-          <div class="panel-head"><h3>Valuation Estimator</h3><span class="station"></span></div>
-          <label for="type" class="sr-only">Property type</label>
-          <select id="type" class="field">
-            <option value="1">Residential</option>
-            <option value="1.5">Commercial</option>
-            <option value="0.8">Land</option>
-          </select>
-          <label for="size" class="sr-only">Approx size</label>
-          <input type="number" id="size" class="field" placeholder="Approx size (sq meters)" min="0">
-          <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
-            <button id="estimateBtn" type="button" class="btn btn-line">Estimate</button>
-            <span class="hint">Indicative only — subject to inspection.</span>
+          <div class="panel-head"><h3>Land Size Converter</h3><span class="station"></span></div>
+
+          <label for="landSize" class="sr-only">Amount</label>
+          <div class="field-row">
+            <input type="number" id="landSize" class="field" placeholder="Amount" min="0" style="flex:1.2;">
+            <label for="fromUnit" class="sr-only">From unit</label>
+            <select id="fromUnit" class="field" style="flex:1;">
+              <option value="sqm">Square Meters</option>
+              <option value="sqft">Square Feet</option>
+              <option value="acres">Acres</option>
+              <option value="hectares">Hectares</option>
+              <option value="decimals">Decimals</option>
+              <option value="sqmi">Square Miles</option>
+            </select>
           </div>
-          <p id="result" class="msg" aria-live="polite"></p>
+
+          <button type="button" id="swapUnits" class="convert-swap" aria-label="Swap units">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 10V4M7 4 4 7M7 4l3 3"/><path d="M17 14v6m0 0 3-3m-3 3-3-3"/></svg>
+          </button>
+
+          <label for="toUnit" class="sr-only">To unit</label>
+          <select id="toUnit" class="field">
+            <option value="acres">Acres</option>
+            <option value="sqm">Square Meters</option>
+            <option value="sqft">Square Feet</option>
+            <option value="hectares">Hectares</option>
+            <option value="decimals">Decimals</option>
+            <option value="sqmi">Square Miles</option>
+          </select>
+
+          <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:4px;">
+            <button id="convertBtn" type="button" class="btn btn-line">Convert</button>
+            <span class="hint">Includes sqm, sqft, acres, hectares, decimals &amp; sq. miles.</span>
+          </div>
+          <p id="convertMsg" class="msg" aria-live="polite"></p>
+          <div id="convertOutput" class="convert-output" aria-live="polite">
+            <div class="cr-value" id="crValue"></div>
+            <div class="cr-label" id="crLabel"></div>
+          </div>
         </div>
 
         <div class="panel marked reveal reveal-3">
@@ -1118,35 +1178,86 @@ document.getElementById('year').textContent = new Date().getFullYear();
 })();
 
 /* ============================================================
-   VALUATION ESTIMATOR
+   LAND SIZE CONVERTER
    ============================================================ */
 (function(){
-  const estimateBtn = document.getElementById('estimateBtn');
-  const typeEl = document.getElementById('type');
-  const sizeEl = document.getElementById('size');
-  const resultEl = document.getElementById('result');
-  if (!estimateBtn) return;
+  const convertBtn = document.getElementById('convertBtn');
+  const swapBtn = document.getElementById('swapUnits');
+  const sizeEl = document.getElementById('landSize');
+  const fromEl = document.getElementById('fromUnit');
+  const toEl = document.getElementById('toUnit');
+  const msgEl = document.getElementById('convertMsg');
+  const outputEl = document.getElementById('convertOutput');
+  const valueEl = document.getElementById('crValue');
+  const labelEl = document.getElementById('crLabel');
+  if (!convertBtn) return;
+
+  // Conversion factors to square meters
+  const TO_SQM = {
+    sqm: 1,
+    sqft: 0.09290304,
+    acres: 4046.8564224,
+    hectares: 10000,
+    decimals: 40.468564224, // 1 decimal = 1/100 acre, common East African land unit
+    sqmi: 2589988.110336
+  };
+
+  const UNIT_LABELS = {
+    sqm: 'Square Meters',
+    sqft: 'Square Feet',
+    acres: 'Acres',
+    hectares: 'Hectares',
+    decimals: 'Decimals',
+    sqmi: 'Square Miles'
+  };
 
   function formatNumber(n) {
-    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    let rounded;
+    if (n >= 100) rounded = Math.round(n);
+    else if (n >= 1) rounded = Math.round(n * 100) / 100;
+    else rounded = Math.round(n * 1e6) / 1e6;
+    const parts = rounded.toString().split('.');
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return parts.join('.');
   }
 
-  estimateBtn.addEventListener('click', function(){
-    resultEl.textContent = '';
-    const multiplier = parseFloat(typeEl.value) || 1;
+  function resetOutput() {
+    msgEl.textContent = '';
+    msgEl.className = 'msg';
+    outputEl.classList.remove('show');
+  }
+
+  convertBtn.addEventListener('click', function(){
+    resetOutput();
+
     const size = parseFloat(sizeEl.value);
+    const from = fromEl.value;
+    const to = toEl.value;
 
     if (!size || size <= 0) {
-      resultEl.className = 'msg error';
-      resultEl.textContent = 'Please enter a valid size in square meters.';
+      msgEl.className = 'msg error';
+      msgEl.textContent = 'Please enter a valid land size.';
       return;
     }
 
-    const baseRate = 50000; // UGX per sqm, indicative
-    const estimateValue = Math.round(size * baseRate * multiplier);
-    resultEl.className = 'msg success';
-    resultEl.textContent = 'Indicative valuation: UGX ' + formatNumber(estimateValue);
+    const sqm = size * TO_SQM[from];
+    const converted = sqm / TO_SQM[to];
+
+    valueEl.textContent = formatNumber(converted) + ' ' + UNIT_LABELS[to];
+    labelEl.textContent = formatNumber(size) + ' ' + UNIT_LABELS[from] + ' converts to';
+    outputEl.classList.add('show');
   });
+
+  if (swapBtn) {
+    swapBtn.addEventListener('click', function(){
+      const temp = fromEl.value;
+      fromEl.value = toEl.value;
+      toEl.value = temp;
+      if (outputEl.classList.contains('show')) {
+        convertBtn.click();
+      }
+    });
+  }
 })();
 
 /* ============================================================
